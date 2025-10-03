@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Rodríguez Fernández - Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>MR</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">INICIO</a></li>
+                <li><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
+                <li><a href="#resume" class="nav-link">CURRÍCULUM</a></li>
+                <li><a href="#about" class="nav-link">SOBRE MÍ</a></li>
+                <li><a href="#contact" class="nav-link">CONTACTO</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Floating Elements for Subtle Animation -->
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="hero-content">
+            <!-- Hero image is now the section background (cover) -->
+            <div class="hero-text parallax-element">
+                <h2 class="hero-greeting">Hola, soy</h2>
+                <h1 class="hero-name">Mario Rodríguez</h1>
+                <p class="hero-subtitle"> Estudiante de Ingeniería Informática en UniOvi (Bilingüe) </p>
+                <p class="hero-subtitle2"> Con un futuro enfoque en ciberseguridad y redes </p>
+            </div>
+        </div>
+        <div class="scroll-indicator parallax-element">
+            <div class="scroll-line"></div>
+            <span>SCROLL</span>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="portfolio-header">
+            <h2 class="section-title">Proyectos <span>destacados</span></h2>
+        </div>
+        
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="packaging">Universidad</button>
+            <button class="filter-btn" data-filter="mockup">Contribuciones</button>
+            <button class="filter-btn" data-filter="photography">Audiovisual</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-category="mockup">
+                <div class="portfolio-image">
+                    <div class="image-placeholder"><img style="object-fit: cover; width: 100%; height: 100%;" src="assets/images/flybywire.png" alt=""></div>
+                </div>
+                <div class="portfolio-overlay">
+                    <h3>Contribuciones FlyByWire</h3>
+                    <p>Colaboración en proyectos de software libre para Microsoft Flight Simulator, específicamente en el desarrollo de aviones virtuales como los de FlyByWire</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="packaging">
+                <div class="portfolio-image">
+                    <div class="image-placeholder"><img style="object-fit: cover; width: 100%; height: 100%;" src="assets/images/SIEM.png" alt="SIEM"></div>
+                </div>
+                <div class="portfolio-overlay">
+                    <h3>Detección de anomalías en tráfico aéreo ADS-B simulado mediante Elastic Stack (SIEM)</h3>
+                    <p>Proyecto universitario enfocado en el análisis de vulnerabilidades de red y sistemas en entornos ADS-B en la aviación (simulado), implementando herramientas SIEM. </p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="photography">
+                <div class="portfolio-image">
+                    <div class="image-placeholder">
+                        <img src="assets/images/audiovisual.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                <div class="portfolio-overlay">
+                    <h3>Producción Audiovisual</h3>
+                    <p>Proyectos de creación de video y fotografía propios. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="container">
+            <h2 class="section-title">Currículum</h2>
+            <div class="resume-content">
+                <div class="resume-column">
+                    <h3>Experiencia</h3>
+                    <div class="resume-item">
+                        <h4>Runner</h4>
+                        <span class="company">Cirque du Soleil - KURIOS · Contrato temporal</span>
+                        <span class="period">jul. 2025 – ago. 2025 · Presencial · Gijón, Principado de Asturias, España</span>
+                        <p>Apoyo al equipo de producción y operaciones durante la gira de KURIOS. Comunicación y coordinación con equipos internacionales. Idiomas: Inglés y Francés.</p>
+                    </div>
+                </div>
+                <div class="resume-column">
+                    <h3>Educación</h3>
+                    <div class="resume-item">
+                        <h4>Bachillerato Científico</h4>
+                        <span class="company"></span>
+                        <span class="period">2020 – 2022</span>
+                        <p></p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>Grado en Ingeniería Informática (Tecnologías de la Información)</h4>
+                        <span class="company">Universidad de Oviedo (UNIOVI) · Modalidad bilingüe</span>
+                        <span class="period">2022 – Presente</span>
+                        <p></p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>Luleå University of Technology (Suecia)</h4>
+                        <span class="company">Programa de intercambio en Ingeniería Informática </span>
+                        <span class="period">2024 – 2025</span>
+                        <p></p>
+                    </div>
+                    <h3>Certificaciones</h3>
+                    <div class="resume-item">
+                        <h4>Certificado B2 en Inglés</h4>
+                        <span class="company">Formación bilingüe en instituto y universidad; profesorado nativo</span>
+                        <span class="period"></span>
+                        <p></p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>Licencia de Conducción</h4>
+                        <span class="company">Clase B</span>
+                        <span class="period"></span>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Acerca de mí</h2>
+                    <p>Soy estudiante de Ingeniería Informática en Tecnologías de la Información en la Escuela Politécnica de Gijón (UNIOVI), actualmente cursando cuarto año en la modalidad bilingüe.</p>
+                    <p>Me considero una persona abierta, cercana y con facilidad para el trabajo en equipo, además de ser curioso y con una gran motivación por aprender y afrontar nuevos desafíos. Compagino mis estudios con el atletismo (federado) y con varias pasiones que desarrollo de forma constante, como la fotografía, la edición audiovisual y la aviación. En esta última he realizado pequeñas contribuciones en proyectos de software libre para Microsoft Flight Simulator (p. ej., FlyByWire) y participo activamente en redes virtuales como controlador y piloto.</p>
+                    <div class="skills">
+                        <h3>Habilidades</h3>
+                        <div class="skill-list">
+                            <span>Redes (OSI/TCP-IP, routing, switching)</span>
+                            <span>Ciberseguridad (fundamentos)</span>
+                            <span>Sistemas (Linux/Windows)</span>
+                            <span>Administración básica de servidores</span>
+                            <span>Bash/Python</span>
+                            <span>Java · C/C++</span>
+                            <span>Docker · Virtualización</span>
+                            <span>Git/GitHub</span>
+                            <span>SQL/NoSQL</span>
+                            <span>HTML/CSS/JS</span>
+                            <span>Wireshark</span>
+                            <span>Resolución de problemas</span>
+                            <span>MS Flight Simulator (modding)</span>
+                            <span>ATC/Pilotaje virtual (IVAO/VATSIM)</span>
+                            <span>Fotografía</span>
+                            <span>Edición de foto/vídeo</span>
+                            <span>Premiere Pro · DaVinci Resolve</span>
+                            <span>Photoshop · Lightroom</span>
+                        </div>
+                        <div style="margin-top:2rem;">
+                            <h3>Interés profesional</h3>
+                            <p>Mi interés profesional se centra en las redes e infraestructuras informáticas, especialmente en el ámbito de la ciberseguridad. Al finalizar el grado, busco adquirir experiencia profesional mientras sigo formándome en esta rama.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Correo</h3>
+                        <p><a style="text-decoration: none; color: inherit;" href="mailto:mariordzf14@gmail.com">mariordzf14@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Teléfono</h3>
+                        <p>+34 626 056 035</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Ubicación</h3>
+                        <p>Gijón, Asturias</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>LinkedIn</h3>
+                        <p><a style="text-decoration: none; color: inherit;" href="https://www.linkedin.com/in/mario-rodriguez-fernandez-90292534a/" target="_blank" rel="noopener">/mario-rodriguez-fernandez</a></p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Tu nombre" required>
+                    <input type="email" placeholder="Tu correo" required>
+                    <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+                    <button type="submit">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mario Rodríguez Fernández. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mario-rodriguez-fernandez-90292534a/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="mailto:mariordzf14@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
