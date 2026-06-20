@@ -3,65 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario's Portfolio</title>
+    <title>Mario Rodríguez — Portfolio</title>
+    <meta name="description" content="Portfolio de Mario Rodríguez Fernández — Ingeniería Informática, ciberseguridad, redes e IA aplicada.">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/enhanced.css">
+    <link rel="stylesheet" href="assets/css/theme-v2.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-v2">
+
+    <!-- Top progress bar will be injected by JS -->
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <span>MR</span>
-            </div>
+            <a href="#home" class="nav-logo"><span>MR</span><i></i></a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">INICIO</a></li>
-                <li><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
-                <li><a href="#resume" class="nav-link">CURRÍCULUM</a></li>
-                <li><a href="#about" class="nav-link">SOBRE MÍ</a></li>
-                <li><a href="#contact" class="nav-link">CONTACTO</a></li>
+                <li><a href="#home" class="nav-link"><em>00</em> Inicio</a></li>
+                <li><a href="#portfolio" class="nav-link"><em>01</em> Proyectos</a></li>
+                <li><a href="#resume" class="nav-link"><em>02</em> Trayectoria</a></li>
+                <li><a href="#about" class="nav-link"><em>03</em> Sobre mí</a></li>
+                <li><a href="#contact" class="nav-link"><em>04</em> Contacto</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <!-- Floating Elements for Subtle Animation -->
+        <div class="hero-bg"></div>
         <div class="floating-elements">
             <div class="floating-element"></div>
             <div class="floating-element"></div>
             <div class="floating-element"></div>
         </div>
-        
+
         <div class="hero-content">
-            <!-- Hero image is now the section background (cover) -->
             <div class="hero-text parallax-element">
-                <h2 class="hero-greeting">Hola, soy</h2>
-                <h1 class="hero-name">Mario Rodríguez</h1>
-                <p class="hero-subtitle"> Estudiante de Ingeniería Informática en UniOvi (Bilingüe) </p>
-                <p class="hero-subtitle2"> Con un futuro enfoque en ciberseguridad y redes </p>
+                <p class="eyebrow"><span class="num">Portfolio</span></p>
+                <h1 class="hero-name">Mario <em>Rodríguez</em></h1>
+                <p class="hero-lede">Estudiante de <strong>Ingeniería Informática</strong> (UniOvi · bilingüe), enfocado en <strong>ciberseguridad</strong>, <strong>redes</strong> y <strong>visión por computador</strong> aplicada.</p>
+                <div class="hero-meta">
+                    <span>Gijón, Asturias</span>
+                    <span>·</span>
+                    <span>Disponible 2026</span>
+                    <span>·</span>
+                    <span>ES · EN · FR</span>
+                </div>
+                <div class="hero-cta">
+                    <a class="btn btn-primary" href="#portfolio">Ver proyectos <i>→</i></a>
+                    <a class="btn btn-ghost" href="#contact">Contactar</a>
+                </div>
             </div>
-        </div>
-        <div class="scroll-indicator parallax-element">
-            <div class="scroll-line"></div>
-            <span>SCROLL</span>
+            <div class="scroll-indicator parallax-element">
+                <div class="scroll-line"></div>
+                <span>SCROLL</span>
+            </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- =====================================================
+         PORTFOLIO · Todos los proyectos
+         ===================================================== -->
     <section id="portfolio" class="portfolio">
         <div class="portfolio-header">
+            <p class="eyebrow"><span class="num">01</span> Proyectos</p>
             <h2 class="section-title">Proyectos <span>destacados</span></h2>
         </div>
-        
+
+        <!-- Featured card · INGenium VisionAI (links to dedicated page) -->
+        <a class="portfolio-featured" href="proyectos/indra-visionai.html" aria-label="Ver caso de estudio INGenium VisionAI">
+            <div class="pf-media">
+                <video class="pf-video" muted loop playsinline preload="metadata"
+                       poster="assets/images/indra/poster_swiss.jpg">
+                    <source src="assets/video/indra/swiss.mp4" type="video/mp4">
+                </video>
+                <div class="pf-media-shade"></div>
+            </div>
+            <div class="pf-body">
+                <div class="pf-badges">
+                    <span class="pf-badge pf-badge--award">★ Accésit</span>
+                    <span class="pf-badge">Indra ATM · 2026</span>
+                </div>
+                <h3 class="pf-title">INGenium <em>VisionAI</em></h3>
+                <p class="pf-desc">Visión artificial en tiempo real para identificación de aerolínea, tipo de aeronave y matrícula desde cámaras aeroportuarias. Sistema premiado en el Concurso de Ideas de IA para ATM de Indra.</p>
+                <div class="pf-stack">
+                    <span>Python</span><span>PyTorch</span><span>YOLO11</span><span>OpenCV</span><span>CUDA</span><span>MSFS · SimConnect</span>
+                </div>
+                <span class="pf-cta">Ver caso de estudio completo <i>→</i></span>
+            </div>
+        </a>
+
         <div class="portfolio-filters">
             <button class="filter-btn active" data-filter="all">Todos</button>
             <button class="filter-btn" data-filter="packaging">Universidad</button>
@@ -79,18 +113,17 @@
                     <p>Colaboración en proyectos de software libre para Microsoft Flight Simulator, específicamente en el desarrollo de aviones virtuales como los de FlyByWire</p>
                 </a></div>
             </div>
-            
+
             <div class="portfolio-item" data-category="packaging">
                 <div class="portfolio-image">
                     <div class="image-placeholder"><img style="object-fit: cover; width: 100%; height: 100%;" src="assets/images/SIEM.png" alt="SIEM"></div>
                 </div>
-                <div class="portfolio-overlay"><a style="text-decoration: none; color: inherit;" target="_blank" href="https://github.com/mariorfdez97/ADS-B_ElasticStack_SIEM">
+                <div class="portfolio-overlay"><a style="text-decoration: none; color: inherit;" target="_blank" href="https://github.com/mariorfdez97/ADS-B_SIEM">
                     <h3>Detección de anomalías en tráfico aéreo ADS-B simulado mediante Elastic Stack (SIEM)</h3>
-                    <p>Proyecto universitario enfocado en el análisis de vulnerabilidades de red y sistemas en entornos ADS-B en la aviación (simulado), implementando herramientas SIEM. </p>
-                    </a>
-                </div>
+                    <p>Proyecto universitario enfocado en el análisis de vulnerabilidades de red y sistemas en entornos ADS-B en la aviación (simulado), implementando herramientas SIEM.</p>
+                </a></div>
             </div>
-            
+
             <div class="portfolio-item" data-category="photography">
                 <div class="portfolio-image">
                     <div class="image-placeholder">
@@ -99,97 +132,176 @@
                 </div>
                 <div class="portfolio-overlay"><a style="text-decoration: none; color: inherit;" target="_blank" href="https://www.youtube.com/watch?v=8fV_7vAZQA0">
                     <h3>Producción Audiovisual</h3>
-                    <p>Proyectos de creación de video y fotografía propios. </p>
+                    <p>Proyectos de creación de video y fotografía propios.</p>
                 </a></div>
             </div>
         </div>
     </section>
 
-    <!-- Resume Section -->
+    <!-- =====================================================
+         TRAYECTORIA · Timeline única
+         ===================================================== -->
     <section id="resume" class="resume">
         <div class="container">
-            <h2 class="section-title">Currículum</h2>
-            <div class="resume-content">
-                <div class="resume-column">
-                    <h3>Experiencia</h3>
-                    <div class="resume-item">
-                        <h4>Runner</h4>
-                        <span class="company">Cirque du Soleil - KURIOS · Contrato temporal</span>
-                        <span class="period">jul. 2025 – ago. 2025 · Presencial · Gijón, Principado de Asturias, España</span>
-                        <p>Apoyo al equipo de producción y operaciones durante la gira de KURIOS. Comunicación y coordinación con equipos internacionales. Idiomas: Inglés y Francés.</p>
-                    </div>
-                </div>
-                <div class="resume-column">
-                    <h3>Educación</h3>
-                    <div class="resume-item">
-                        <h4>Bachillerato Científico</h4>
-                        <span class="company"></span>
-                        <span class="period">2020 – 2022</span>
-                        <p></p>
-                    </div>
-                    <div class="resume-item">
-                        <h4>Grado en Ingeniería Informática (Tecnologías de la Información)</h4>
-                        <span class="company">Universidad de Oviedo (UNIOVI) · Modalidad bilingüe</span>
-                        <span class="period">2022 – Presente</span>
-                        <p></p>
-                    </div>
-                    <div class="resume-item">
-                        <h4>Luleå University of Technology (Suecia)</h4>
-                        <span class="company">Programa de intercambio en Ingeniería Informática </span>
-                        <span class="period">2024 – 2025</span>
-                        <p></p>
-                    </div>
-                    <h3>Certificaciones</h3>
-                    <div class="resume-item">
-                        <h4>Certificado B2 en Inglés</h4>
-                        <span class="company">Formación bilingüe en instituto y universidad; profesorado nativo</span>
-                        <span class="period"></span>
-                        <p></p>
-                    </div>
-                    <div class="resume-item">
-                        <h4>Licencia de Conducción</h4>
-                        <span class="company">Clase B</span>
-                        <span class="period"></span>
-                        <p></p>
-                    </div>
+            <div class="resume-header">
+                <p class="eyebrow"><span class="num">02</span> Trayectoria</p>
+                <h2 class="section-title">Currículum</h2>
+                <p class="resume-lede">Cronología de formación, experiencia y reconocimientos — de lo más reciente a lo más antiguo.</p>
+                <div class="resume-filters">
+                    <button class="rf-btn active" data-rf="all">Todo</button>
+                    <button class="rf-btn" data-rf="award">Reconocimientos</button>
+                    <button class="rf-btn" data-rf="exp">Experiencia</button>
+                    <button class="rf-btn" data-rf="edu">Educación</button>
+                    <button class="rf-btn" data-rf="cert">Certificaciones</button>
                 </div>
             </div>
+
+            <ol class="rt-timeline">
+                <li class="rt-item rt-award" data-cat="award">
+                    <div class="rt-meta">
+                        <span class="rt-period">2026</span>
+                        <span class="rt-tag rt-tag--award">★ Reconocimiento</span>
+                    </div>
+                    <div class="rt-body">
+                        <h3>Accésit · Concurso de Ideas de IA para ATM</h3>
+                        <p class="rt-org">Indra ATM — Reto 5 · <em>INGenium VisionAI</em></p>
+                        <p>Premio al proyecto de visión artificial para identificación de aeronaves en tiempo real (detalles en el caso de estudio arriba).</p>
+                    </div>
+                </li>
+
+                <li class="rt-item" data-cat="exp">
+                    <div class="rt-meta">
+                        <span class="rt-period">jul 2025 – ago 2025</span>
+                        <span class="rt-tag rt-tag--exp">Experiencia</span>
+                    </div>
+                    <div class="rt-body">
+                        <h3>Runner</h3>
+                        <p class="rt-org">Cirque du Soleil · KURIOS — Gijón</p>
+                        <p>Apoyo a producción y operaciones durante la gira de KURIOS. Coordinación multilingüe con equipos internacionales (EN · FR).</p>
+                    </div>
+                </li>
+
+                <li class="rt-item" data-cat="edu">
+                    <div class="rt-meta">
+                        <span class="rt-period">2024 – 2025</span>
+                        <span class="rt-tag rt-tag--edu">Educación · Intercambio</span>
+                    </div>
+                    <div class="rt-body">
+                        <h3>Luleå University of Technology</h3>
+                        <p class="rt-org">Programa de intercambio · Suecia</p>
+                        <p>Curso académico en una de las universidades técnicas más al norte de Europa, dentro del programa Erasmus+.</p>
+                    </div>
+                </li>
+
+                <li class="rt-item" data-cat="edu rt-edu-main">
+                    <div class="rt-meta">
+                        <span class="rt-period">2022 – Actualidad</span>
+                        <span class="rt-tag rt-tag--edu">Educación</span>
+                    </div>
+                    <div class="rt-body">
+                        <h3>Grado en Ingeniería Informática · Tecnologías de la Información</h3>
+                        <p class="rt-org">Universidad de Oviedo (UNIOVI) — Escuela Politécnica de Gijón · Modalidad bilingüe</p>
+                        <p>Cuarto año en curso. Foco en redes, sistemas, ciberseguridad y desarrollo de software.</p>
+                    </div>
+                </li>
+
+                <li class="rt-item" data-cat="edu">
+                    <div class="rt-meta">
+                        <span class="rt-period">2020 – 2022</span>
+                        <span class="rt-tag rt-tag--edu">Educación</span>
+                    </div>
+                    <div class="rt-body">
+                        <h3>Bachillerato Científico</h3>
+                        <p class="rt-org">Gijón, Asturias</p>
+                    </div>
+                </li>
+
+                <li class="rt-item" data-cat="cert">
+                    <div class="rt-meta">
+                        <span class="rt-period">·</span>
+                        <span class="rt-tag rt-tag--cert">Certificación</span>
+                    </div>
+                    <div class="rt-body">
+                        <h3>Certificado B2 en Inglés</h3>
+                        <p class="rt-org">Formación bilingüe (instituto y universidad) · profesorado nativo</p>
+                    </div>
+                </li>
+
+                <li class="rt-item" data-cat="cert">
+                    <div class="rt-meta">
+                        <span class="rt-period">·</span>
+                        <span class="rt-tag rt-tag--cert">Permiso</span>
+                    </div>
+                    <div class="rt-body">
+                        <h3>Licencia de Conducción · Clase B</h3>
+                    </div>
+                </li>
+            </ol>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- =====================================================
+         ABOUT · Sobre mí + skills categorizadas
+         ===================================================== -->
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
+                    <p class="eyebrow"><span class="num">03</span> Sobre mí</p>
                     <h2 class="section-title">Acerca de mí</h2>
                     <p>Soy estudiante de Ingeniería Informática en Tecnologías de la Información en la Escuela Politécnica de Gijón (UNIOVI), actualmente cursando cuarto año en la modalidad bilingüe.</p>
-                    <p>Me considero una persona abierta, cercana y con facilidad para el trabajo en equipo, además de ser curioso y con una gran motivación por aprender y afrontar nuevos desafíos. Compagino mis estudios con el atletismo (federado) y con varias pasiones que desarrollo de forma constante, como la fotografía, la edición audiovisual y la aviación. En esta última he realizado pequeñas contribuciones en proyectos de software libre para Microsoft Flight Simulator (p. ej., FlyByWire) y participo activamente en redes virtuales como controlador y piloto.</p>
+                    <p>Me considero una persona abierta, cercana y con facilidad para el trabajo en equipo, además de ser curioso y con una gran motivación por aprender y afrontar nuevos desafíos. Compagino mis estudios con el atletismo federado y con varias pasiones que desarrollo de forma constante — fotografía, edición audiovisual y aviación. En esta última he realizado pequeñas contribuciones en proyectos de software libre para Microsoft Flight Simulator (FlyByWire) y participo activamente en redes virtuales como controlador y piloto.</p>
+
                     <div class="skills">
-                        <h3>Habilidades</h3>
-                        <div class="skill-list">
-                            <span>Redes (OSI/TCP-IP, routing, switching)</span>
-                            <span>Ciberseguridad (fundamentos)</span>
-                            <span>Sistemas (Linux/Windows)</span>
-                            <span>Administración básica de servidores</span>
-                            <span>Bash/Python</span>
-                            <span>Java · C/C++</span>
-                            <span>Docker · Virtualización</span>
-                            <span>Git/GitHub</span>
-                            <span>SQL/NoSQL</span>
-                            <span>HTML/CSS/JS</span>
-                            <span>Wireshark</span>
-                            <span>Resolución de problemas</span>
-                            <span>MS Flight Simulator (modding)</span>
-                            <span>ATC/Pilotaje virtual (IVAO/VATSIM)</span>
-                            <span>Fotografía</span>
-                            <span>Edición de foto/vídeo</span>
-                            <span>Premiere Pro · DaVinci Resolve</span>
-                            <span>Photoshop · Lightroom</span>
+                        <h3>Stack &amp; habilidades</h3>
+                        <div class="skill-groups">
+                            <div class="skill-group">
+                                <h4>Redes &amp; Seguridad</h4>
+                                <div class="skill-list">
+                                    <span>OSI / TCP-IP</span>
+                                    <span>Routing &amp; switching</span>
+                                    <span>Ciberseguridad (fundamentos)</span>
+                                    <span>Wireshark</span>
+                                    <span>SIEM / Elastic Stack</span>
+                                </div>
+                            </div>
+                            <div class="skill-group">
+                                <h4>Sistemas &amp; DevOps</h4>
+                                <div class="skill-list">
+                                    <span>Linux / Windows</span>
+                                    <span>Administración básica de servidores</span>
+                                    <span>Docker · Virtualización</span>
+                                    <span>Git / GitHub</span>
+                                </div>
+                            </div>
+                            <div class="skill-group">
+                                <h4>Programación &amp; Datos</h4>
+                                <div class="skill-list">
+                                    <span>Python</span>
+                                    <span>Bash</span>
+                                    <span>Java</span>
+                                    <span>C / C++</span>
+                                    <span>HTML / CSS / JS</span>
+                                    <span>SQL / NoSQL</span>
+                                    <span>PyTorch · OpenCV (intro)</span>
+                                </div>
+                            </div>
+                            <div class="skill-group">
+                                <h4>Aviación &amp; Audiovisual</h4>
+                                <div class="skill-list">
+                                    <span>MSFS 2020 (modding)</span>
+                                    <span>SimConnect</span>
+                                    <span>ATC / Pilotaje virtual (IVAO · VATSIM)</span>
+                                    <span>Premiere Pro · DaVinci Resolve</span>
+                                    <span>Photoshop · Lightroom</span>
+                                    <span>Fotografía</span>
+                                </div>
+                            </div>
                         </div>
-                        <div style="margin-top:2rem;">
+
+                        <div class="interest-block">
                             <h3>Interés profesional</h3>
-                            <p>Mi interés profesional se centra en las redes e infraestructuras informáticas, especialmente en el ámbito de la ciberseguridad. Al finalizar el grado, busco adquirir experiencia profesional mientras sigo formándome en esta rama.</p>
+                            <p>Redes e infraestructuras informáticas, con especial foco en <strong>ciberseguridad</strong>. Tras finalizar el grado, busco adquirir experiencia profesional mientras sigo formándome en esta rama.</p>
                         </div>
                     </div>
                 </div>
@@ -197,15 +309,20 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
+            <div class="contact-header">
+                <p class="eyebrow"><span class="num">04</span> Contacto</p>
+                <h2 class="section-title">Hablemos.</h2>
+            </div>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
                         <h3>Correo</h3>
-                        <p><a style="text-decoration: none; color: inherit;" href="mailto:mariordzf14@gmail.com">mariordzf14@gmail.com</a></p>
+                        <p><a href="mailto:mariordzf14@gmail.com">mariordzf14@gmail.com</a></p>
                     </div>
                     <div class="contact-item">
                         <h3>Teléfono</h3>
@@ -217,14 +334,24 @@
                     </div>
                     <div class="contact-item">
                         <h3>LinkedIn</h3>
-                        <p><a style="text-decoration: none; color: inherit;" href="https://www.linkedin.com/in/mario-rodriguez-fernandez-90292534a/" target="_blank" rel="noopener">/mario-rodriguez-fernandez</a></p>
+                        <p><a href="https://www.linkedin.com/in/mario-rodriguez-fernandez-90292534a/" target="_blank" rel="noopener">/mario-rodriguez-fernandez</a></p>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Tu nombre" required>
-                    <input type="email" placeholder="Tu correo" required>
-                    <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+                <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+                    <!-- Web3Forms access key — sustituye por el tuyo: https://web3forms.com/ -->
+                    <input type="hidden" name="access_key" value="3060a178-75b5-4226-a0f8-82b3ecb73f6b">
+                    <input type="hidden" name="subject" value="Nuevo mensaje desde el portfolio">
+                    <input type="hidden" name="from_name" value="Portfolio Mario">
+                    <input type="hidden" name="redirect" value="false">
+                    <!-- Honeypot anti-spam -->
+                    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <input type="text" name="name" placeholder="Tu nombre" required>
+                    <input type="email" name="email" placeholder="Tu correo" required>
+                    <textarea name="message" placeholder="Tu mensaje" rows="5" required></textarea>
                     <button type="submit">Enviar mensaje</button>
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                    <p class="form-fallback">¿Prefieres email directo? <a href="mailto:mariordzf14@gmail.com?subject=Contacto%20desde%20portfolio">mariordzf14@gmail.com</a></p>
                 </form>
             </div>
         </div>
@@ -233,9 +360,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Mario Rodríguez Fernández. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Mario Rodríguez Fernández.</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/mario-rodriguez-fernandez-90292534a/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/mariorfdez97" target="_blank" rel="noopener">GitHub</a>
                 <a href="mailto:mariordzf14@gmail.com">Email</a>
             </div>
         </div>

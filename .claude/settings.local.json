@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"C:\\\\Users\\\\Mario\\\\Documents\\\\Universidad\\\\Indra\\\\aereo-INGenium-VisionAI\\\\test_results\\\\analisis_qatar2.png\" \"C:\\\\Users\\\\Mario\\\\Documents\\\\yo\\\\portfolioWeb\\\\portfolio\\\\portfolio\\\\assets\\\\images\\\\indra\\\\demo_qatar.png\")",
+      "Bash(cp \"C:\\\\Users\\\\Mario\\\\Documents\\\\Universidad\\\\Indra\\\\aereo-INGenium-VisionAI\\\\test_results\\\\analisis_BA.png\" \"C:\\\\Users\\\\Mario\\\\Documents\\\\yo\\\\portfolioWeb\\\\portfolio\\\\portfolio\\\\assets\\\\images\\\\indra\\\\demo_ba.png\")",
+      "Bash(cp \"C:\\\\Users\\\\Mario\\\\Documents\\\\Universidad\\\\Indra\\\\aereo-INGenium-VisionAI\\\\test_results\\\\analisis_swiss.png\" \"C:\\\\Users\\\\Mario\\\\Documents\\\\yo\\\\portfolioWeb\\\\portfolio\\\\portfolio\\\\assets\\\\images\\\\indra\\\\demo_swiss.png\")",
+      "Bash(cp \"C:\\\\Users\\\\Mario\\\\Documents\\\\Universidad\\\\Indra\\\\aereo-INGenium-VisionAI\\\\test_results\\\\analisis_france.png\" \"C:\\\\Users\\\\Mario\\\\Documents\\\\yo\\\\portfolioWeb\\\\portfolio\\\\portfolio\\\\assets\\\\images\\\\indra\\\\demo_france.png\")",
+      "Bash(cp \"C:\\\\Users\\\\Mario\\\\Documents\\\\Universidad\\\\Indra\\\\aereo-INGenium-VisionAI\\\\test_results\\\\analisis_dhlDEF.png\" \"C:\\\\Users\\\\Mario\\\\Documents\\\\yo\\\\portfolioWeb\\\\portfolio\\\\portfolio\\\\assets\\\\images\\\\indra\\\\demo_dhl.png\")",
+      "Bash(ffmpeg -version)",
+      "Bash(ffprobe -v error -show_entries format=duration -show_entries stream=width,height,r_frame_rate -of default=noprint_wrappers=1 'C:\\\\Users\\\\Mario\\\\Documents\\\\antigravity\\\\IndraPresentacion$f')",
+      "Bash(python -m http.server 8765)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(curl *)",
+      "Bash(npx --yes playwright install chromium)",
+      "Bash(node .tmp_screenshot.js)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

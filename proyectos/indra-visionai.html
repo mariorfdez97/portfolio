@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INGenium VisionAI — Mario Rodríguez</title>
+    <meta name="description" content="Caso de estudio · INGenium VisionAI: visión artificial en tiempo real para identificación de aeronaves, accésit en el Concurso de Ideas de IA para ATM de Indra ATM (2026).">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/enhanced.css">
+    <link rel="stylesheet" href="../assets/css/theme-v2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+</head>
+<body class="theme-v2 page-case">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo"><span>MR</span><i></i></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link"><em>00</em> Inicio</a></li>
+                <li><a href="../index.html#portfolio" class="nav-link active"><em>01</em> Proyectos</a></li>
+                <li><a href="../index.html#resume" class="nav-link"><em>02</em> Trayectoria</a></li>
+                <li><a href="../index.html#about" class="nav-link"><em>03</em> Sobre mí</a></li>
+                <li><a href="../index.html#contact" class="nav-link"><em>04</em> Contacto</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb / back link -->
+    <div class="case-backbar">
+        <a href="../index.html#portfolio" class="back-link"><i>←</i> Volver a proyectos</a>
+    </div>
+
+    <!-- =====================================================
+         CASE STUDY · INGenium VisionAI
+         ===================================================== -->
+    <section id="case" class="case">
+        <div class="case-intro">
+            <p class="eyebrow"><span class="num">Caso de estudio</span></p>
+            <div class="case-titlewrap">
+                <h1 class="case-title">INGenium <em>VisionAI</em></h1>
+                <div class="case-award">
+                    <span class="award-star">★</span>
+                    <div>
+                        <strong>Accésit</strong>
+                        <em>Concurso de Ideas de IA para ATM · Indra ATM · Reto 5 (2026)</em>
+                    </div>
+                </div>
+            </div>
+            <p class="case-lede">
+                Sistema de visión por computador que, a partir del vídeo de una cámara aeroportuaria, identifica en tiempo real la <strong>aerolínea</strong>, el <strong>tipo de aeronave</strong> y la <strong>matrícula</strong> de cada avión visible, con confirmación cruzada contra base de datos real de operadores.
+            </p>
+            <p class="case-disclaimer">La propiedad intelectual del proyecto pertenece a Indra. El código fuente no se publica — esta página muestra únicamente resultados, métricas y materiales presentables.</p>
+        </div>
+
+        <!-- Sticky scrollytelling -->
+        <div class="case-scroller">
+            <div class="case-frame">
+                <div class="case-stage" id="caseStage">
+                    <figure class="stage-item active" data-stage="0">
+                        <video src="../assets/video/indra/swiss.mp4" poster="../assets/images/indra/poster_swiss.jpg" muted loop playsinline preload="metadata"></video>
+                        <figcaption><span class="tag">Inferencia en vivo</span> Swiss · tracking + clasificación + matrícula en tiempo real</figcaption>
+                    </figure>
+                    <figure class="stage-item" data-stage="1">
+                        <img src="../assets/images/indra/diagram_topk.png" alt="Top-5 de modelos">
+                        <figcaption><span class="tag">Modelo M2 · Tipo</span> Top-5 de modelos sobre recorte de aeronave</figcaption>
+                    </figure>
+                    <figure class="stage-item" data-stage="2">
+                        <img src="../assets/images/indra/diagram_gradcam.png" alt="Grad-CAM sobre ATR-72">
+                        <figcaption><span class="tag">Grad-CAM</span> ATR-72 · zonas que activan la decisión del modelo</figcaption>
+                    </figure>
+                    <figure class="stage-item" data-stage="3">
+                        <img src="../assets/images/indra/diagram_ocr.jpg" alt="Pipeline OCR matrícula">
+                        <figcaption><span class="tag">OCR · Matrícula</span> YOLO localiza · upscale · lectura final con certeza 90%+</figcaption>
+                    </figure>
+                    <figure class="stage-item" data-stage="4">
+                        <video src="../assets/video/indra/dataset_msfs.mp4" poster="../assets/images/indra/poster_dataset_msfs.jpg" muted loop playsinline preload="metadata"></video>
+                        <figcaption><span class="tag">Dataset sintético</span> Microsoft Flight Simulator + SimConnect · 42 combinaciones por aerolínea</figcaption>
+                    </figure>
+                    <figure class="stage-item" data-stage="5">
+                        <video src="../assets/video/indra/dataset_capture.mp4" poster="../assets/images/indra/poster_dataset_capture.jpg" muted loop playsinline preload="metadata"></video>
+                        <figcaption><span class="tag">Captura orbital</span> Cámara virtual sobre el avión spawneado, 360° controlado</figcaption>
+                    </figure>
+                    <figure class="stage-item" data-stage="6">
+                        <video src="../assets/video/indra/ba.mp4" poster="../assets/images/indra/poster_ba.jpg" muted loop playsinline preload="metadata"></video>
+                        <figcaption><span class="tag">Inferencia · British Airways</span> Aproximación real procesada en tiempo real</figcaption>
+                    </figure>
+                    <figure class="stage-item" data-stage="7">
+                        <video src="../assets/video/indra/ryanair.mp4" poster="../assets/images/indra/poster_ryanair.jpg" muted loop playsinline preload="metadata"></video>
+                        <figcaption><span class="tag">Inferencia · Ryanair</span> Tracking estable bajo cambios de cámara</figcaption>
+                    </figure>
+                    <figure class="stage-item" data-stage="8">
+                        <video src="../assets/video/indra/ezy.mp4" poster="../assets/images/indra/poster_ezy.jpg" muted loop playsinline preload="metadata"></video>
+                        <figcaption><span class="tag">Inferencia · easyJet</span> Robustez frente a oclusiones del fuselaje</figcaption>
+                    </figure>
+                    <figure class="stage-item" data-stage="9">
+                        <img src="../assets/images/indra/confusion_matrix.png" alt="Matriz de confusión 23 aerolíneas">
+                        <figcaption><span class="tag">Evaluación</span> Matriz de confusión · ~99% accuracy sobre 23 aerolíneas</figcaption>
+                    </figure>
+                </div>
+                <ol class="stage-progress" id="stageProgress"></ol>
+            </div>
+
+            <div class="case-narrative">
+                <article class="chapter" data-target="0">
+                    <p class="ch-num">00 · Resumen</p>
+                    <h3>Cámara aeroportuaria → conocimiento operacional, en tiempo real.</h3>
+                    <p>Un único pipeline GPU recibe vídeo y devuelve, frame a frame, qué aerolínea opera cada aeronave, qué tipo de aeronave es y cuál es su matrícula. Cruza la lectura con una base de datos real de <strong>7363 matrículas</strong> para validar la coherencia operador↔aerolínea.</p>
+                    <div class="ch-stats">
+                        <div><strong>23</strong><span>aerolíneas</span></div>
+                        <div><strong>30–60</strong><span>FPS GPU</span></div>
+                        <div><strong>~99%</strong><span>accuracy</span></div>
+                        <div><strong>7363</strong><span>matrículas</span></div>
+                    </div>
+                </article>
+
+                <article class="chapter" data-target="1">
+                    <p class="ch-num">01 · Clasificación de tipo</p>
+                    <h3>De recorte a top-5 ranqueado.</h3>
+                    <p>El modelo M2 (EfficientNet finetuneado) recibe un recorte de la aeronave detectada y devuelve un ranking de probabilidades sobre el catálogo de tipos. Solo se acepta la predicción si supera umbrales de confianza y consistencia temporal.</p>
+                </article>
+
+                <article class="chapter" data-target="2">
+                    <p class="ch-num">02 · Explicabilidad</p>
+                    <h3>Grad-CAM: por qué el modelo decide lo que decide.</h3>
+                    <p>Los mapas de calor confirman que la red atiende a las zonas semánticamente relevantes — fuselaje, cola, motores — y no a artefactos del fondo. Una herramienta clave para depurar errores durante el entrenamiento.</p>
+                </article>
+
+                <article class="chapter" data-target="3">
+                    <p class="ch-num">03 · OCR de matrícula</p>
+                    <h3>Tres pasos: localizar, upscalear, leer.</h3>
+                    <p>Un YOLO dedicado localiza la matrícula incluso a baja resolución (38×24 px). Tras un upscale optimizado, EasyOCR/PaddleOCR la lee con votación temporal y corrección regex. La lectura solo se fija tras varias coincidencias consecutivas con alta confianza.</p>
+                </article>
+
+                <article class="chapter" data-target="4">
+                    <p class="ch-num">04 · Dataset sintético</p>
+                    <h3>Cuando no hay datos, los fabricamos.</h3>
+                    <p>Microsoft Flight Simulator 2020 + SimConnect + FSLTL como generador masivo: <strong>42 combinaciones</strong> por aerolínea (clima × hora × estado × librea). Etiquetado automático en el nombre de archivo, listas para entrenamiento sin intervención manual.</p>
+                </article>
+
+                <article class="chapter" data-target="5">
+                    <p class="ch-num">05 · Captura orbital</p>
+                    <h3>Cámara virtual con trayectoria de Lissajous y zoom dinámico.</h3>
+                    <p>Cada aeronave spawneada se captura desde múltiples ángulos siguiendo una curva orbital paramétrica, lo que multiplica el número de muestras útiles por minuto de simulación y previene el sobreajuste a vistas frontales.</p>
+                </article>
+
+                <article class="chapter" data-target="6">
+                    <p class="ch-num">06 · Inferencia real · British Airways</p>
+                    <h3>Aproximación real, frame a frame.</h3>
+                    <p>El sistema mantiene un ID estable a través de la aproximación, recupera la identidad si el avión se sale momentáneamente del frame y aporta la matrícula tan pronto como la resolución lo permite.</p>
+                </article>
+
+                <article class="chapter" data-target="7">
+                    <p class="ch-num">07 · Inferencia real · Ryanair</p>
+                    <h3>Tracking estable ante cambios de cámara.</h3>
+                    <p>El tracker YOLO11s no se "rompe" con paneos bruscos o cambios de zoom de la fuente. El consenso multi-modelo absorbe oscilaciones de confianza entre frames.</p>
+                </article>
+
+                <article class="chapter" data-target="8">
+                    <p class="ch-num">08 · Inferencia real · easyJet</p>
+                    <h3>Robusto ante oclusiones del fuselaje.</h3>
+                    <p>La votación temporal mantiene la predicción correcta incluso cuando los identificadores visibles se ocultan parcialmente tras estructuras del aeropuerto u otras aeronaves.</p>
+                </article>
+
+                <article class="chapter" data-target="9">
+                    <p class="ch-num">09 · Evaluación</p>
+                    <h3>Cero errores cruzados entre aerolíneas.</h3>
+                    <p>La matriz de confusión sobre el conjunto de validación muestra una diagonal casi perfecta a lo largo de las 23 aerolíneas evaluadas. El modelo distingue librea, no se limita a memorizar fondos.</p>
+                    <div class="ch-stack">
+                        <span>Python</span><span>PyTorch</span><span>YOLO11</span><span>EfficientNet</span><span>OpenCV</span><span>EasyOCR · PaddleOCR</span><span>CUDA</span><span>MSFS · SimConnect</span><span>Multithreading</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="case-outro">
+            <a href="../index.html#portfolio" class="btn btn-ghost"><i>←</i> Volver a proyectos</a>
+            <a href="../index.html#contact" class="btn btn-primary">Hablemos <i>→</i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Mario Rodríguez Fernández.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mario-rodriguez-fernandez-90292534a/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/mariorfdez97" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:mariordzf14@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

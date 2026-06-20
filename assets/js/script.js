@@ -15,7 +15,195 @@ document.addEventListener('DOMContentLoaded', function() {
     initPreloader();
     adjustAboutLayout();
     initSectionParticles();
+    initFeaturedGallery();
+    initCaseScrollytelling();
+    initResumeFilters();
+    initPageTransitions();
 });
+
+// ─── Cross-page fade transition ───────────────────────────────
+// Intercepts clicks on same-origin links and runs a fade-out → navigate → fade-in.
+// Navbar/footer are excluded by CSS so they appear to stay static between pages.
+function initPageTransitions() {
+    const body = document.body;
+
+    // Trigger entry fade-in on every page load (after preloader has done its thing)
+    requestAnimationFrame(() => body.classList.add('is-entered'));
+
+    // Reset state if page is restored from bfcache (back/forward navigation)
+    window.addEventListener('pageshow', (e) => {
+        body.classList.remove('is-leaving');
+        body.classList.add('is-entered');
+    });
+
+    // Click interceptor
+    document.addEventListener('click', (e) => {
+        // Only primary click without modifier keys
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        const link = e.target.closest('a');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        if (link.target && link.target !== '_self') return;
+        if (link.hasAttribute('download')) return;
+
+        const proto = link.protocol;
+        if (proto === 'mailto:' || proto === 'tel:' || proto === 'javascript:') return;
+        // Same-page anchor → let the smooth-scroll handler do its thing
+        if (href.startsWith('#')) return;
+        // External origin → let the browser navigate normally
+        if (link.origin !== location.origin) return;
+        // Same pathname (only hash change) → don't fade out
+        if (link.pathname === location.pathname) return;
+
+        e.preventDefault();
+        body.classList.remove('is-entered');
+        body.classList.add('is-leaving');
+        // Match CSS animation duration of pageFadeOut (~300ms)
+        setTimeout(() => { window.location.href = link.href; }, 320);
+    });
+}
+
+// Resume timeline filter pills
+function initResumeFilters() {
+    const btns = document.querySelectorAll('.rf-btn');
+    const items = document.querySelectorAll('.rt-item');
+    if (!btns.length || !items.length) return;
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-rf');
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            items.forEach(it => {
+                const cats = (it.getAttribute('data-cat') || '').split(/\s+/);
+                const match = filter === 'all' || cats.includes(filter);
+                it.classList.toggle('is-hidden', !match);
+            });
+        });
+    });
+}
+
+// Scrollytelling: sync sticky stage with currently-visible chapter
+function initCaseScrollytelling() {
+    const stage = document.getElementById('caseStage');
+    if (!stage) return;
+
+    const items = Array.from(stage.querySelectorAll('.stage-item'));
+    const chapters = Array.from(document.querySelectorAll('.case-narrative .chapter'));
+    const progress = document.getElementById('stageProgress');
+    if (!items.length || !chapters.length) return;
+
+    // Build progress segments
+    if (progress && !progress.children.length) {
+        items.forEach((_, i) => {
+            const li = document.createElement('li');
+            li.dataset.index = i;
+            li.addEventListener('click', () => activate(i));
+            progress.appendChild(li);
+        });
+    }
+
+    function activate(idx) {
+        items.forEach((el, i) => {
+            const isActive = i === idx;
+            el.classList.toggle('active', isActive);
+            // Autoplay/pause videos
+            const vid = el.querySelector('video');
+            if (vid) {
+                if (isActive) {
+                    vid.play().catch(() => {});
+                } else {
+                    vid.pause();
+                }
+            }
+        });
+        if (progress) {
+            Array.from(progress.children).forEach((seg, i) => {
+                seg.classList.toggle('active', i === idx);
+                seg.classList.toggle('done', i < idx);
+            });
+        }
+    }
+
+    // IntersectionObserver: when a chapter crosses the middle of the viewport, activate
+    const io = new IntersectionObserver((entries) => {
+        // Pick the entry closest to the viewport center
+        let best = null;
+        let bestDist = Infinity;
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const rect = entry.boundingClientRect;
+            const center = (rect.top + rect.bottom) / 2;
+            const dist = Math.abs(center - window.innerHeight / 2);
+            if (dist < bestDist) {
+                bestDist = dist;
+                best = entry.target;
+            }
+        });
+        if (best) {
+            const idx = parseInt(best.dataset.target, 10);
+            if (!isNaN(idx)) activate(idx);
+        }
+    }, {
+        threshold: [0.25, 0.5, 0.75],
+        rootMargin: '-30% 0px -30% 0px'
+    });
+
+    chapters.forEach(ch => io.observe(ch));
+
+    // Initial state
+    activate(0);
+
+    // Also re-evaluate on scroll end (debounced) — fallback for fast scrolls
+    let scrollTimer;
+    window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            const viewportCenter = window.scrollY + window.innerHeight / 2;
+            let bestIdx = 0;
+            let bestDist = Infinity;
+            chapters.forEach(ch => {
+                const rect = ch.getBoundingClientRect();
+                const absTop = rect.top + window.scrollY;
+                const center = absTop + rect.height / 2;
+                const dist = Math.abs(center - viewportCenter);
+                if (dist < bestDist) {
+                    bestDist = dist;
+                    bestIdx = parseInt(ch.dataset.target, 10);
+                }
+            });
+            activate(bestIdx);
+        }, 90);
+    }, { passive: true });
+}
+
+// Featured project gallery (INGenium VisionAI)
+function initFeaturedGallery() {
+    const mainImg = document.getElementById('featuredMainImg');
+    const caption = document.getElementById('featuredCaption');
+    const thumbs = document.querySelectorAll('.gallery-thumbs .thumb');
+    if (!mainImg || !thumbs.length) return;
+
+    thumbs.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const src = btn.getAttribute('data-img');
+            const cap = btn.getAttribute('data-caption') || '';
+            if (!src || mainImg.src.endsWith(src)) return;
+
+            mainImg.classList.add('swap');
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.alt = cap;
+                if (caption) caption.textContent = cap;
+                mainImg.classList.remove('swap');
+            }, 180);
+
+            thumbs.forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+}
 
 // Ajusta la disposición de la sección "Acerca de mí" si la columna de imagen está vacía
 function adjustAboutLayout() {
@@ -85,7 +273,10 @@ function initNavigation() {
 // Advanced Parallax Effects
 function initParallax() {
     const heroImage = document.querySelector('.hero-image');
-    const heroText = document.querySelector('.hero-text');
+    // In theme-v2 the hero text is centered + tightly framed; vertical parallax
+    // would push it offscreen. Disable text parallax when v2 is active.
+    const isV2 = document.body.classList.contains('theme-v2');
+    const heroText = isV2 ? null : document.querySelector('.hero-text');
     const hero = document.querySelector('.hero');
 
     let currentScrollY = window.pageYOffset;
@@ -254,42 +445,92 @@ function initSmoothScrolling() {
     });
 }
 
-// Contact Form Handling
+// Contact Form Handling — real submission via Web3Forms (https://web3forms.com)
+// To enable: get a free access key at web3forms.com and replace YOUR_WEB3FORMS_ACCESS_KEY
+// in the hidden input. While not configured, the form falls back to a mailto: link.
 function initContactForm() {
     const form = document.querySelector('.contact-form');
-    
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Simple form validation and submission
-            const formData = new FormData(form);
-            const submitBtn = form.querySelector('button[type="submit"]');
-            
-            // Disable button and show loading state
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual endpoint)
-            setTimeout(() => {
+    if (!form) return;
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const status = form.querySelector('#formStatus') || form.querySelector('.form-status');
+    const originalLabel = submitBtn.textContent;
+
+    const setStatus = (msg, kind) => {
+        if (!status) return;
+        status.textContent = msg || '';
+        status.dataset.kind = kind || '';
+    };
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        setStatus('', '');
+
+        // Basic native validation
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const accessKey = form.querySelector('input[name="access_key"]')?.value || '';
+        const action = form.getAttribute('action') || 'https://api.web3forms.com/submit';
+
+        // If not configured, fall back to mailto
+        if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+            const name = form.querySelector('[name="name"]').value.trim();
+            const email = form.querySelector('[name="email"]').value.trim();
+            const message = form.querySelector('[name="message"]').value.trim();
+            const body = `De: ${name} <${email}>%0D%0A%0D%0A${encodeURIComponent(message)}`;
+            window.location.href = `mailto:mariordzf14@gmail.com?subject=${encodeURIComponent('Contacto portfolio · ' + name)}&body=${body}`;
+            setStatus('Abriendo tu cliente de correo…', 'info');
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando…';
+        setStatus('', '');
+
+        try {
+            const data = new FormData(form);
+            const res = await fetch(action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            const json = await res.json().catch(() => ({}));
+
+            if (res.ok && (json.success === true || json.success === undefined)) {
                 submitBtn.textContent = '¡Mensaje enviado!';
-                submitBtn.style.background = '#4CAF50';
-                
-                // Reset form
+                submitBtn.style.background = '#1c8f7a';
+                submitBtn.style.color = '#fff';
+                setStatus('Gracias — te respondo en breve.', 'ok');
                 form.reset();
-                
                 setTimeout(() => {
-                    submitBtn.textContent = 'Enviar mensaje';
-                    submitBtn.style.background = '#000';
+                    submitBtn.textContent = originalLabel;
+                    submitBtn.style.background = '';
+                    submitBtn.style.color = '';
                     submitBtn.disabled = false;
-                }, 3000);
-            }, 2000);
-        });
-    }
+                }, 4000);
+            } else {
+                throw new Error(json.message || `HTTP ${res.status}`);
+            }
+        } catch (err) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalLabel;
+            setStatus('No se pudo enviar. Inténtalo de nuevo o escribe a mariordzf14@gmail.com.', 'err');
+            console.error('Contact form error:', err);
+        }
+    });
 }
 
-// Preloader
+// Preloader — only on the very first visit of the session.
+// Subsequent navigations between pages use the JS page-transition fade instead.
 function initPreloader() {
+    try {
+        if (sessionStorage.getItem('mr-loaded') === '1') return; // skip on cross-page navigation
+        sessionStorage.setItem('mr-loaded', '1');
+    } catch (e) { /* private mode / disabled storage — still show preloader */ }
+
     // Create preloader
     const preloader = document.createElement('div');
     preloader.className = 'preloader';
