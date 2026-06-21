@@ -134,7 +134,7 @@ body.theme-v2.is-leaving > *:not(.navbar):not(.footer):not(script):not(.custom-c
     background:
         radial-gradient(800px circle at 15% 25%, rgba(201,107,26,0.10), transparent 60%),
         radial-gradient(900px circle at 85% 75%, rgba(80,120,200,0.08), transparent 60%),
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.45)),
         url('../images/mario.jpg') center center / cover no-repeat;
     z-index: 0;
     filter: saturate(0.85) contrast(1.05);
@@ -376,6 +376,35 @@ body.theme-v2.is-leaving > *:not(.navbar):not(.footer):not(script):not(.custom-c
     font-size: 10.5px;
     letter-spacing: 0.08em;
     color: var(--ink-soft);
+}
+.theme-v2 .case-award .award-link {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-decoration: none;
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    width: fit-content;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 2px;
+    transition: color 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.theme-v2 .case-award .award-link i {
+    font-style: normal;
+    display: inline-block;
+    transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.theme-v2 .case-award .award-link:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+}
+.theme-v2 .case-award .award-link:hover i {
+    transform: translate(2px, -2px);
 }
 .theme-v2 .case-lede {
     font-size: clamp(1.05rem, 1.6vw, 1.3rem);
