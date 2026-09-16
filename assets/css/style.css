@@ -130,7 +130,7 @@ h1, h2, h3, h4 {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(135deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.55) 100%), url('../images/mario.jpg') center center / cover no-repeat;
+    background: linear-gradient(135deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.55) 100%), url('../images/mario-hero.webp') center top / cover no-repeat;
     overflow: hidden;
     min-height: 600px;
 }

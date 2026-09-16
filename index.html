@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mario Rodríguez — Portfolio</title>
     <meta name="description" content="Portfolio de Mario Rodríguez Fernández — Ingeniería Informática, ciberseguridad, redes e IA aplicada.">
+    <link rel="preload" as="image" href="assets/images/mario-hero.webp" fetchpriority="high">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/enhanced.css">
     <link rel="stylesheet" href="assets/css/theme-v2.css">
@@ -43,14 +44,14 @@
         <div class="hero-content">
             <div class="hero-text parallax-element">
                 <p class="eyebrow"><span class="num">Portfolio</span></p>
-                <h1 class="hero-name">Mario <em>Rodríguez</em></h1>
+                <h1 class="hero-name"><span>Mario</span> <em>Rodríguez</em></h1>
                 <p class="hero-lede">Estudiante de <strong>Ingeniería Informática</strong> (UniOvi · bilingüe), enfocado en <strong>redes</strong>, <strong>ciberseguridad</strong> e infraestructuras, con proyección en el <strong>sector aeronáutico</strong>.</p>
                 <div class="hero-meta">
                     <span>Gijón, Asturias</span>
                     <span>·</span>
                     <span>Disponible 2026</span>
                     <span>·</span>
-                    <span>ES · EN · FR</span>
+                    <span>ES · EN</span>
                 </div>
                 <div class="hero-cta">
                     <a class="btn btn-primary" href="#portfolio">Ver proyectos <i>→</i></a>
@@ -157,6 +158,19 @@
             </div>
 
             <ol class="rt-timeline">
+                <li class="rt-item" data-cat="exp">
+                    <div class="rt-meta">
+                        <span class="rt-period">jun 2026 – ago 2026</span>
+                        <span class="rt-tag rt-tag--exp">Experiencia</span>
+                    </div>
+                    <div class="rt-body">
+                        <h3>Desarrollo web y GIS · Prácticas</h3>
+                        <p class="rt-org">NTT DATA Green Engineering — Oviedo</p>
+                        <p>Prácticas curriculares. Participación en el diseño, construcción y mantenimiento de plataformas para la gestión y explotación de datos geoespaciales.</p>
+                        <p>Desarrollo de una aplicación web en React para Iberdrola, orientada a la gestión de subestaciones eléctricas, como parte del equipo de NTT DATA.</p>
+                    </div>
+                </li>
+
                 <li class="rt-item rt-award" data-cat="award">
                     <div class="rt-meta">
                         <span class="rt-period">2026</span>
@@ -201,7 +215,7 @@
                     <div class="rt-body">
                         <h3>Grado en Ingeniería Informática · Tecnologías de la Información</h3>
                         <p class="rt-org">Universidad de Oviedo (UNIOVI) — Escuela Politécnica de Gijón · Modalidad bilingüe</p>
-                        <p>Cuarto año en curso. Foco en redes, sistemas, ciberseguridad y desarrollo de software.</p>
+                        <p>Fase final del grado. Formación en sistemas, redes y desarrollo de software, con interés en su aplicación al sector aeronáutico.</p>
                     </div>
                 </li>
 
@@ -249,48 +263,48 @@
                 <div class="about-text">
                     <p class="eyebrow"><span class="num">03</span> Sobre mí</p>
                     <h2 class="section-title">Acerca de mí</h2>
-                    <p class="about-lead">Soy estudiante de Ingeniería Informática en Tecnologías de la Información en la Escuela Politécnica de Gijón (Universidad de Oviedo), actualmente en cuarto curso de la modalidad bilingüe.</p>
-                    <p>Me defino como una persona abierta, cercana y orientada al trabajo en equipo. La curiosidad y la mejora continua marcan mi forma de aprender y de afrontar nuevos desafíos.</p>
-                    <p>Compagino los estudios con el atletismo federado y con aficiones que desarrollo de forma constante: fotografía, edición audiovisual y aviación. En este último ámbito he realizado pequeñas contribuciones en proyectos de software libre para Microsoft Flight Simulator, especialmente en aviones virtuales como los de FlyByWire, y participo activamente en redes virtuales tanto como controlador como piloto.</p>
+                    <p class="about-lead">Estoy en la fase final del Grado en Ingeniería Informática en Tecnologías de la Información, en la modalidad bilingüe de la Escuela Politécnica de Ingeniería de Gijón (Universidad de Oviedo). Me interesan el software, los sistemas y las infraestructuras, especialmente cuando se aplican a la aviación.</p>
+                    <p>Durante mis prácticas en NTT DATA Green Engineering he trabajado en soluciones GIS y participado en el desarrollo de una aplicación web en React para Iberdrola, orientada a la gestión de subestaciones eléctricas. Ha sido una oportunidad para trasladar lo aprendido en el grado a un proyecto real y seguir aprendiendo en equipo.</p>
+                    <p>Mi interés por la aviación va más allá de los estudios: participo como piloto y controlador virtual en VATSIM e IVAO, y he realizado pequeñas contribuciones a FlyByWire para Microsoft Flight Simulator. Esa afición también ha guiado mis proyectos: desde la monitorización de tráfico ADS-B con Elastic Stack hasta INGenium VisionAI, desarrollado con el equipo Aeroingenium y reconocido con un accésit en el Concurso de Ideas de IA para ATM de Indra.</p>
+                    <p>Me considero una persona cercana y curiosa, y disfruto aprendiendo con otras personas. Fuera de la informática, compagino el atletismo federado con la fotografía y la edición audiovisual.</p>
 
                     <div class="skills">
                         <h3>Stack &amp; habilidades</h3>
                         <div class="skill-groups">
                             <div class="skill-group">
-                                <h4>Redes &amp; Seguridad</h4>
-                                <div class="skill-list">
-                                    <span>OSI / TCP-IP</span>
-                                    <span>Routing &amp; switching</span>
-                                    <span>Ciberseguridad (fundamentos)</span>
-                                    <span>Wireshark</span>
-                                    <span>SIEM / Elastic Stack</span>
-                                </div>
-                            </div>
-                            <div class="skill-group">
-                                <h4>Sistemas &amp; DevOps</h4>
-                                <div class="skill-list">
-                                    <span>Linux / Windows</span>
-                                    <span>Administración básica de servidores</span>
-                                    <span>Docker · Virtualización</span>
-                                    <span>Git / GitHub</span>
-                                </div>
-                            </div>
-                            <div class="skill-group">
-                                <h4>Programación &amp; Datos</h4>
+                                <h4>Lenguajes</h4>
                                 <div class="skill-list">
                                     <span>Python</span>
-                                    <span>Bash</span>
                                     <span>Java</span>
                                     <span>C / C++</span>
-                                    <span>HTML / CSS / JS</span>
-                                    <span>SQL / NoSQL</span>
+                                    <span>C#</span>
+                                    <span>JavaScript</span>
+                                    <span>TypeScript</span>
+                                    <span>SQL</span>
+                                    <span>Rust</span>
+                                </div>
+                            </div>
+                            <div class="skill-group">
+                                <h4>Frameworks &amp; desarrollo</h4>
+                                <div class="skill-list">
+                                    <span>React</span>
+                                    <span>.NET</span>
+                                    <span>HTML / CSS</span>
                                     <span>PyTorch · OpenCV (intro)</span>
+                                </div>
+                            </div>
+                            <div class="skill-group">
+                                <h4>Herramientas &amp; entornos</h4>
+                                <div class="skill-list">
+                                    <span>Git / GitHub</span>
+                                    <span>Docker / Docker Compose</span>
+                                    <span>Linux / Bash</span>
+                                    <span>Elastic Stack / Kibana</span>
                                 </div>
                             </div>
                             <div class="skill-group">
                                 <h4>Aviación &amp; Audiovisual</h4>
                                 <div class="skill-list">
-                                    <span>MSFS 2020 (modding)</span>
                                     <span>SimConnect</span>
                                     <span>ATC / Pilotaje virtual (IVAO · VATSIM)</span>
                                     <span>Premiere Pro · DaVinci Resolve</span>
@@ -302,7 +316,7 @@
 
                         <div class="interest-block">
                             <h3>Interés profesional</h3>
-                            <p>Redes e infraestructuras informáticas, con foco en <strong>ciberseguridad</strong>. Al finalizar el grado quiero adquirir experiencia profesional en el <strong>sector aeronáutico</strong> mientras continúo formándome y especializándome en esta rama.</p>
+                            <p>Quiero orientar mi carrera hacia el <strong>sector aeronáutico</strong>, especialmente los <strong>sistemas de gestión del tráfico aéreo (ATM)</strong>. Me interesa aplicar mi formación en software, sistemas y redes a este ámbito, sin perder de vista la ciberseguridad y las infraestructuras, y seguir aprendiendo a través de proyectos y experiencia profesional.</p>
                         </div>
                     </div>
                 </div>

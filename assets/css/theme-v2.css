@@ -130,14 +130,29 @@ body.theme-v2.is-leaving > *:not(.navbar):not(.footer):not(script):not(.custom-c
     align-items: center;
 }
 .theme-v2 .hero-bg {
+    --portrait-position: right center;
     position: absolute; inset: 0;
     background:
         radial-gradient(800px circle at 15% 25%, rgba(201,107,26,0.10), transparent 60%),
-        radial-gradient(900px circle at 85% 75%, rgba(80,120,200,0.08), transparent 60%),
-        linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.45)),
-        url('../images/mario.jpg') center center / cover no-repeat;
+        radial-gradient(900px circle at 85% 75%, rgba(80,120,200,0.08), transparent 60%);
     z-index: 0;
-    filter: saturate(0.85) contrast(1.05);
+}
+.theme-v2 .hero-bg::before {
+    content: '';
+    position: absolute;
+    /* Scale only the portrait, keeping the full-width background in place. */
+    inset: 6% 0 6% 10%;
+    transform: scale(0.69);
+    transform-origin: right center;
+    translate: -8vw 0;
+    background: url('../images/mario-hero.webp') var(--portrait-position) / cover no-repeat;
+    filter: grayscale(0.85);
+    opacity: 1;
+    /* Fade the lifted blacks into the page instead of exposing a rectangle. */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 30%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 75%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 30%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 75%, transparent);
+    mask-composite: intersect;
 }
 .theme-v2 .hero::after {
     background: linear-gradient(180deg, transparent 0%, rgba(10,10,11,0.4) 60%, var(--bg) 100%);
@@ -154,10 +169,19 @@ body.theme-v2.is-leaving > *:not(.navbar):not(.footer):not(script):not(.custom-c
     padding-right: 8vw;
     max-width: 1200px;
     margin-top: 0 !important;
-    align-self: left;
+    align-self: flex-start;
     text-align: left;
 }
 @media (max-width: 768px) {
+    /* Keep the right-hand portrait in view and the overlaid copy legible. */
+    .theme-v2 .hero-bg {
+        --portrait-position: 74% center;
+    }
+    .theme-v2 .hero-bg::before {
+        inset: 8% 0;
+        translate: none;
+        opacity: 0.90;
+    }
     .theme-v2 .hero-text { padding-left: 8vw; padding-right: 8vw; }
 }
 .theme-v2 .hero-text .eyebrow span {
@@ -175,7 +199,13 @@ body.theme-v2.is-leaving > *:not(.navbar):not(.footer):not(script):not(.custom-c
     line-height: 1;
     letter-spacing: -0.025em;
     margin: 0 0 1.5rem 0;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.20em;
+    row-gap: 0.05em;
+    font-optical-sizing: auto;
 }
 .theme-v2 .hero-name em {
     font-style: italic;
